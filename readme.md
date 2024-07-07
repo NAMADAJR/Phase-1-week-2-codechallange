@@ -1,19 +1,27 @@
-# Phase 1 week 2 Code challange (Shopping list)
+# Phase 1 week 2 Code challange (Interactive Shopping list)
 
 ## By Namada Junior
 
 ## Project Description
 
-
 The website is a simple shopping list website that allows users to add items to a list and check them off when they have been purchased. The website is built using HTML, CSS, and JavaScript and uses a simple button to add items to the list and a clear button to remove all items from the list. The website also uses some custom fonts and colors to make it visually appealing.
 
 Here is the link to the website [(https://namadajr.github.io/Phase-1-week-2-codechallange/)](https://namadajr.github.io/Phase-1-week-2-codechallange/)
 
-
 ## Features of the website
+This is how the website looks upon being loaded on to the browser.
+![image](./image1.png)
 
+This is how the website looks after items have been added to the shopping list.
+![image](./image2.png)
+
+As the user purchases items from the shopping list, they can click on the item to cross it off to show that the item has been bought.
+![image](./image3.png)
+
+
+## Properties of the website
 ### HTML
-This is the structure of the Html file which is the foundation of the landing page.
+This is the structure of the Html file which is the foundation of the page.
 
 ```html
   <body>
@@ -114,7 +122,7 @@ p {
 
 ### Javascript
 
-This function first clears the previous list items, then iterates over the shoppingItems array, creating a new list item for each item in the array. If an item is marked as completed, it adds a "completed" class to the list item, it allows toggling the completed status of an item
+This function first clears the previous list items, then iterates over the shoppingItems array, creating a new list item for each item in the array. If an item is marked as completed, it adds a "completed" class to the list item, it allows toggling the completed status of an item.
 ```js
 function renderItems() {
   const list = document.getElementById("shoppingList");
@@ -138,7 +146,7 @@ function renderItems() {
 }
 ```
 
-This function adds items to the shopping list
+This function adds items to the shopping list.
 ```js
 function addItem() {
   const itemInput = document.getElementById("itemInput");
@@ -152,7 +160,7 @@ function addItem() {
 }
 ```
 
-This function clears all items from the list
+This function clears all items from the list.
 ```js
 function clearList() {
   shoppingItems = [];
@@ -160,7 +168,7 @@ function clearList() {
 }
 ```
 
-This are the event listeners that enable the buttons to function 
+This are the event listeners that enable the buttons to function.
 ```js
 document.getElementById("addItem").addEventListener("click", addItem);
 document.getElementById("clearList").addEventListener("click", clearList);

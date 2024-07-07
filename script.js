@@ -1,32 +1,49 @@
-// This is the main function that handles adding items to the shopping list.
-document.addEventListener("DOMContentLoaded", function () {
-  const addItemForm = document.getElementById("addItemForm");
-  const itemInput = document.getElementById("itemInput");
-  const shoppingList = document.getElementById("shoppingList");
-  const clearListBtn = document.getElementById("clearList");
+// Array to store shopping list items
+let shoppingItems = [];
 
-  // It takes the text of the item to be added as a parameter and creates a new list item.
-  addItemForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-    const newItemText = itemInput.value.trim();
-    if (newItemText !== "") {
-      addItem(newItemText);
-      itemInput.value = "";
+// Function to render shopping list items
+function renderItems() {
+  const list = document.getElementById("shoppingList");
+  list.innerHTML = ""; // Clear previous list items
+
+  shoppingItems.forEach((item, index) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = item.name;
+
+    // Add class if item is marked as completed
+    if (item.completed) {
+      listItem.classList.add("completed");
     }
-  });
 
-  // It sets the text of the list item to the item's text, adds a click event listener to toggle the completed class, and appends the list item to the shopping list.
-  function addItem(itemText) {
-    const li = document.createElement("li");
-    li.innerText = itemText;
-    li.addEventListener("click", function () {
-      li.classList.toggle("completed");
+    // Toggle completed status on click
+    listItem.addEventListener("click", () => {
+      item.completed = !item.completed;
+      renderItems(); // Update UI
     });
-    shoppingList.appendChild(li);
-  }
 
-  // It clears the input field after the item has been added.
-  clearListBtn.addEventListener("click", function () {
-    shoppingList.innerHTML = "";
+    list.appendChild(listItem);
   });
-});
+}
+
+// Function to add item to shopping list
+function addItem() {
+  const itemInput = document.getElementById("itemInput");
+  const itemName = itemInput.value.trim();
+
+  if (itemName !== "") {
+    shoppingItems.push({ name: itemName, completed: false });
+    renderItems();
+    itemInput.value = ""; // Clear input field
+  }
+}
+
+// Function to clear all items from the list
+function clearList() {
+  shoppingItems = [];
+  renderItems(); // Update UI
+}
+
+// Event listeners
+document.getElementById("addItem").addEventListener("click", addItem);
+document.getElementById("clearList").addEventListener("click", clearList);
+

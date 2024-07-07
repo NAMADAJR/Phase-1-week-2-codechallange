@@ -5,6 +5,11 @@
 ## Project Description
 
 
+The website is a simple shopping list website that allows users to add items to a list and check them off when they have been purchased. The website is built using HTML, CSS, and JavaScript and uses a simple button to add items to the list and a clear button to remove all items from the list. The website also uses some custom fonts and colors to make it visually appealing.
+
+## Features
+
+///////////to be added
 
 ## System Requirements
 

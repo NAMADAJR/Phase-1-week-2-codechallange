@@ -7,25 +7,23 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
+    <h1>My Shopping List</h1>
 
-    <div class="container">
-
-        <h1>Shopping List</h1>
-
-        <form id="addItemForm">
-            <input type="text" id="itemInput" placeholder="Enter item">
-            <button type="submit">Add Item</button>
-        </form>
-
-        <ul id="shoppingList">
-            <!-- Items will be added here -->
-        </ul>
-
-        <button id="clearList">Clear List</button>
+    <div>
+      <input type="text" id="itemInput" placeholder="Type item here..." />
     </div>
 
-    <script src="./script.js"></script>
+    <div>
+      <button id="addItem">Add Item</button>
+      <button id="clearList">Clear List</button>
+    </div>
 
+    <ol id="shoppingList">
+      <!-- List items will be added here -->
+    </ol>
+
+    <p>*Click on an item to mark it as purchased*</p>
+
+    <script src="./script.js"></script>
   </body>
 </html>
-

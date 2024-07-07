@@ -1,4 +1,4 @@
-# Phase 1 week 2 Code challange
+# Phase 1 week 2 Code challange (Shopping list)
 
 ## By Namada Junior
 
@@ -7,9 +7,34 @@
 
 The website is a simple shopping list website that allows users to add items to a list and check them off when they have been purchased. The website is built using HTML, CSS, and JavaScript and uses a simple button to add items to the list and a clear button to remove all items from the list. The website also uses some custom fonts and colors to make it visually appealing.
 
-## Features
+Here is the link to the website [(https://namadajr.github.io/Phase-1-week-2-codechallange/)](https://namadajr.github.io/Phase-1-week-2-codechallange/)
 
-///////////to be added
+
+## Features of the website
+
+```js
+  <body>
+    <h1>My Shopping List</h1>
+
+    <div>
+      <input type="text" id="itemInput" placeholder="Type item here..." />
+    </div>
+
+    <div>
+      <button id="addItem">Add Item</button>
+      <button id="clearList">Clear List</button>
+    </div>
+
+    <ol id="shoppingList">
+      <!-- List items will be added here -->
+    </ol>
+
+    <p>*Click on an item to mark it as purchased*</p>
+
+    <script src="./script.js"></script>
+  </body>
+```
+
 
 ## System Requirements
 
@@ -22,7 +47,7 @@ The website is a simple shopping list website that allows users to add items to 
 
 ## Technology used
 
-Used Visual Studio Code editor to write the HTML, CSS and Javascript used to create the quiz board website.
+Used Visual Studio Code editor to write the HTML, CSS and Javascript used to create the website.
 
 HTML - HTML was used to create the structure and foundation of the landing page.
 

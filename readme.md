@@ -12,7 +12,10 @@ Here is the link to the website [(https://namadajr.github.io/Phase-1-week-2-code
 
 ## Features of the website
 
-```js
+### HTML
+This is the structure of the Html file which is the foundation of the landing page.
+
+```html
   <body>
     <h1>My Shopping List</h1>
 
@@ -34,8 +37,134 @@ Here is the link to the website [(https://namadajr.github.io/Phase-1-week-2-code
     <script src="./script.js"></script>
   </body>
 ```
+### CSS
+This is the styling that was used to make the website more appealing to the user.
 
+```css
+@import url("https://fonts.googleapis.com/css2?family=Bilbo+Swash+Caps&family=Ga+Maamli&family=Jacquarda+Bastarda+9+Charted&family=Margarine&family=Playball&family=Playwrite+IS&display=swap");
 
+body {
+  background-color: rgb(133, 55, 0);
+  text-align: center;
+  font-family: "Margarine", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1 {
+  color: black;
+  text-decoration: underline dotted;
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  width: 60%;
+  margin-right: 10px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
+
+#addItem {
+  font-family: "Margarine", sans-serif;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: green;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#clearList {
+  font-family: "Margarine", sans-serif;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: #b9a6a6;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+}
+
+li.completed {
+  text-decoration: line-through;
+}
+
+p {
+  font-family: "Margarine", sans-serif;
+  font-size: 14px;
+  color: black;
+}
+```
+
+### Javascript
+
+This function first clears the previous list items, then iterates over the shoppingItems array, creating a new list item for each item in the array. If an item is marked as completed, it adds a "completed" class to the list item, it allows toggling the completed status of an item
+```js
+function renderItems() {
+  const list = document.getElementById("shoppingList");
+  list.innerHTML = ""; 
+
+  shoppingItems.forEach((item, index) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = item.name;
+
+    if (item.completed) {
+      listItem.classList.add("completed");
+    }
+
+    listItem.addEventListener("click", () => {
+      item.completed = !item.completed;
+      renderItems(); 
+    });
+
+    list.appendChild(listItem);
+  });
+}
+```
+
+This function adds items to the shopping list
+```js
+function addItem() {
+  const itemInput = document.getElementById("itemInput");
+  const itemName = itemInput.value.trim();
+
+  if (itemName !== "") {
+    shoppingItems.push({ name: itemName, completed: false });
+    renderItems();
+    itemInput.value = ""; 
+  }
+}
+```
+
+This function clears all items from the list
+```js
+function clearList() {
+  shoppingItems = [];
+  renderItems(); 
+}
+```
+
+This are the event listeners that enable the buttons to function 
+```js
+document.getElementById("addItem").addEventListener("click", addItem);
+document.getElementById("clearList").addEventListener("click", clearList);
+```
 ## System Requirements
 
 - Node 18+
